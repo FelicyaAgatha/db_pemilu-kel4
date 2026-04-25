@@ -24,6 +24,14 @@ header .logo {
 }
 
 
+  header nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 14px;
+  }
+
+
 /* container tengah */
 .login-container{
   display:flex;
