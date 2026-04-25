@@ -1,0 +1,126 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f4f6fb;
+  color: #222;
+}
+
+/* Navbar */
+header {
+  background: #1f4aa8;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 8%;
+}
+
+header .logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+header nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 14px;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 8%;
+  flex-wrap: wrap;
+}
+
+.hero-text {
+  max-width: 500px;
+}
+
+.hero-text h1 {
+  font-size: 40px;
+  line-height: 1.4;
+}
+
+.hero-text h1 span {
+  color: #000000;
+}
+
+.hero-text p {
+  margin: 20px 0;
+  color: #555;
+  line-height: 1.6;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 12px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: white;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.blue {
+  background: #1f4aa8;
+}
+
+.green {
+  background: #1f8f2f;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.hero-image img {
+  width: 320px;
+}
+
+/* Statistik */
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 30px 8%;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: white;
+  width: 180px;
+  text-align: center;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.card h2 {
+  color: #1f4aa8;
+  margin-bottom: 8px;
+}
+
+/* Footer */
+footer {
+  margin-top: 40px;
+  background: #1f4aa8;
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
