@@ -30,34 +30,19 @@
     <div class="card">
       <img src="../img/WhatsApp Image 2026-04-25 at 15.38.10.jpeg">
       <h3>Paslon 1 OSIS</h3>
-      <button class="btn-profile"
-        data-nama="Paslon 1 OSIS"
-        data-img="../img/WhatsApp Image 2026-04-25 at 15.38.10.jpeg"
-        data-desc="Visi misi Paslon 1 OSIS">
-        Lihat Profil
-      </button>
+      <button onclick="openPopup('osis1')">Lihat Profil</button>
     </div>
 
     <div class="card">
       <img src="../img/WhatsApp Image 2026-04-25 at 15.38.10.jpeg">
       <h3>Paslon 2 OSIS</h3>
-      <button class="btn-profile"
-        data-nama="Paslon 2 OSIS"
-        data-img="../img/WhatsApp Image 2026-04-25 at 15.38.10.jpeg"
-        data-desc="Visi misi Paslon 2 OSIS">
-        Lihat Profil
-      </button>
+      <button onclick="openPopup('osis2')">Lihat Profil</button>
     </div>
 
     <div class="card">
       <img src="../img/WhatsApp Image 2026-04-25 at 15.38.10.jpeg">
       <h3>Paslon 3 OSIS</h3>
-      <button class="btn-profile"
-        data-nama="Paslon 3 OSIS"
-        data-img="../img/WhatsApp Image 2026-04-25 at 15.38.10.jpeg"
-        data-desc="Visi misi Paslon 3 OSIS">
-        Lihat Profil
-      </button>
+      <button onclick="openPopup('osis3')">Lihat Profil</button>
     </div>
 
   </div>
@@ -69,47 +54,141 @@
     <div class="card">
       <img src="../img/WhatsApp Image 2026-04-25 at 14.01.23.jpeg">
       <h3>Paslon 1 MPK</h3>
-      <button class="btn-profile"
-        data-nama="Paslon 1 MPK"
-        data-img="../img/WhatsApp Image 2026-04-25 at 14.01.23.jpeg"
-        data-desc="Visi misi Paslon 1 MPK">
-        Lihat Profil
-      </button>
+      <button onclick="openPopup('mpk1')">Lihat Profil</button>
     </div>
 
     <div class="card">
       <img src="../img/WhatsApp Image 2026-04-25 at 14.01.23.jpeg">
       <h3>Paslon 2 MPK</h3>
-      <button class="btn-profile"
-        data-nama="Paslon 2 MPK"
-        data-img="../img/WhatsApp Image 2026-04-25 at 14.01.23.jpeg"
-        data-desc="Visi misi Paslon 2 MPK">
-        Lihat Profil
-      </button>
+      <button onclick="openPopup('mpk2')">Lihat Profil</button>
     </div>
 
     <div class="card">
       <img src="../img/WhatsApp Image 2026-04-25 at 14.01.23.jpeg">
       <h3>Paslon 3 MPK</h3>
-      <button class="btn-profile"
-        data-nama="Paslon 3 MPK"
-        data-img="../img/WhatsApp Image 2026-04-25 at 14.01.23.jpeg"
-        data-desc="Visi misi Paslon 3 MPK">
-        Lihat Profil
-      </button>
+      <button onclick="openPopup('mpk3')">Lihat Profil</button>
     </div>
 
   </div>
 
 </div>
 
-<!-- POPUP -->
-<div id="popup" class="popup">
-  <div class="popup-content">
-    <span class="close">&times;</span>
-    <img id="popup-img" src="">
-    <h2 id="popup-title"></h2>
-    <p id="popup-desc"></p>
+<!-- ================= POPUP OSIS ================= -->
+
+<div id="osis1" class="popup">
+  <div class="popup-content landscape">
+    <span class="close" onclick="closePopup('osis1')">&times;</span>
+    <div class="popup-body">
+      <div class="left">
+        <img src="../img/WhatsApp Image 2026-04-25 at 15.38.10.jpeg">
+        <h3>Paslon 1 OSIS</h3>
+      </div>
+      <div class="right">
+        <h4>Visi</h4>
+        <p>Menjadikan OSIS lebih aktif dan kreatif</p>
+        <h4>Misi</h4>
+        <p>1. Meningkatkan kegiatan siswa<br>
+           2. Membuat program kerja baru<br>
+           3. Menjalin komunikasi antar siswa</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="osis2" class="popup">
+  <div class="popup-content landscape">
+    <span class="close" onclick="closePopup('osis2')">&times;</span>
+    <div class="popup-body">
+      <div class="left">
+        <img src="../img/WhatsApp Image 2026-04-25 at 15.38.10.jpeg">
+        <h3>Paslon 2 OSIS</h3>
+      </div>
+      <div class="right">
+        <h4>Visi</h4>
+        <p>Meningkatkan solidaritas siswa</p>
+        <h4>Misi</h4>
+        <p>1. Membuat event sekolah<br>
+           2. Mengembangkan bakat siswa</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="osis3" class="popup">
+  <div class="popup-content landscape">
+    <span class="close" onclick="closePopup('osis3')">&times;</span>
+    <div class="popup-body">
+      <div class="left">
+        <img src="../img/WhatsApp Image 2026-04-25 at 15.38.10.jpeg">
+        <h3>Paslon 3 OSIS</h3>
+      </div>
+      <div class="right">
+        <h4>Visi</h4>
+        <p>Mewujudkan OSIS yang inovatif</p>
+        <h4>Misi</h4>
+        <p>1. Program kreatif baru<br>
+           2. Kolaborasi antar kelas</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= POPUP MPK ================= -->
+
+<div id="mpk1" class="popup">
+  <div class="popup-content landscape">
+    <span class="close" onclick="closePopup('mpk1')">&times;</span>
+    <div class="popup-body">
+      <div class="left">
+        <img src="../img/WhatsApp Image 2026-04-25 at 14.01.23.jpeg">
+        <h3>Paslon 1 MPK</h3>
+      </div>
+      <div class="right">
+        <h4>Visi</h4>
+        <p>Menjadi pengawas OSIS yang baik</p>
+        <h4>Misi</h4>
+        <p>1. Mengawasi program kerja<br>
+           2. Menyalurkan aspirasi siswa</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="mpk2" class="popup">
+  <div class="popup-content landscape">
+    <span class="close" onclick="closePopup('mpk2')">&times;</span>
+    <div class="popup-body">
+      <div class="left">
+        <img src="../img/WhatsApp Image 2026-04-25 at 14.01.23.jpeg">
+        <h3>Paslon 2 MPK</h3>
+      </div>
+      <div class="right">
+        <h4>Visi</h4>
+        <p>Meningkatkan transparansi organisasi</p>
+        <h4>Misi</h4>
+        <p>1. Monitoring kegiatan<br>
+           2. Evaluasi program</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="mpk3" class="popup">
+  <div class="popup-content landscape">
+    <span class="close" onclick="closePopup('mpk3')">&times;</span>
+    <div class="popup-body">
+      <div class="left">
+        <img src="../img/WhatsApp Image 2026-04-25 at 14.01.23.jpeg">
+        <h3>Paslon 3 MPK</h3>
+      </div>
+      <div class="right">
+        <h4>Visi</h4>
+        <p>MPK yang aktif dan responsif</p>
+        <h4>Misi</h4>
+        <p>1. Menyerap aspirasi siswa<br>
+           2. Menjadi jembatan komunikasi</p>
+      </div>
+    </div>
   </div>
 </div>
 
