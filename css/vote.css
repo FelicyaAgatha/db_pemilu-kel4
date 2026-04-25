@@ -9,73 +9,93 @@ body{
   background:#eef2f7;
 }
 
-  header {
-    background: #1f4aa8;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 8%;
-  }
-
-  header .logo {
-    font-size: 20px;
-    font-weight: bold;
-  }
-
-  header nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-    font-size: 14px;
-  }
-
-  header nav a:hover {
-    text-shadow: 0px 0px 10px white;
-  }
-
-/* Vote Section */
-.vote-container{
-  display:flex;
-  justify-content:center;
-  gap:25px;
-  padding:40px;
-  flex-wrap:wrap;
+/* HEADER */
+header {
+  background: #1f4aa8;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 8%;
 }
 
-/* Candidate Card */
-.candidate-card{
-  background:white;
+header .logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+header nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 14px;
+}
+
+header nav a:hover {
+  text-shadow: 0px 0px 10px white;
+}
+
+/* Vote Section */
+.container{
+  display:flex;
+  flex-direction: column;
+  justify-content:center;
+  gap:25px;
+  align-items: center;
+  padding:40px;
+}
+
+/* 🔥 FIX: biar responsive & ga nabrak */
+.osis, .mpk {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Background card */
+.osis .card {
+  background: linear-gradient(to bottom , darkred, white);
+}
+
+.mpk .card {
+  background: linear-gradient(to bottom , darkgreen, white);
+}
+
+/* CARD */
+.card{
   width:250px;
   padding:20px;
+  margin: 20px;
   text-align:center;
   border-radius:12px;
   box-shadow:0 4px 12px rgba(0,0,0,0.1);
 }
 
-.candidate-card img{
-  width:180px;
+/* 🔥 FIX: biar gambar ga pecah */
+.card img{
+  width:100%;
   height:180px;
   border-radius:10px;
   object-fit:cover;
   margin-bottom:15px;
 }
 
-.candidate-card h3{
-  color:#1f4aa8;
+/* 🔥 FIX TYPO: 0xp -> 0px */
+.card h3{
+  color: white;
+  text-shadow: 0px 0px 10px white;
   margin-bottom:8px;
 }
 
-.candidate-card p{
-  color:#666;
+.card p{
+  color:#444;
   margin-bottom:15px;
 }
 
-/* Button */
-.candidate-card button{
+/* BUTTON */
+.card button{
   width:100%;
   padding:12px;
-  background:#1f4aa8;
   color:white;
   border:none;
   border-radius:8px;
@@ -83,6 +103,89 @@ body{
   font-size:15px;
 }
 
-.candidate-card button:hover{
-  background:#17397f;
+.osis .card button {
+  background-color: red;
+  transition: all 0.3s ease;
+}
+
+.mpk .card button {
+  background-color: green;
+  transition: all 0.3s ease;
+}
+
+.osis .card button:hover {
+  background: darkred;
+  text-shadow: 0px 0px 10px white;
+}
+
+.mpk .card button:hover {
+  background: darkgreen;
+  text-shadow: 0px 0px 10px white;
+}
+
+.overlay{
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.5);
+  display:none;
+  z-index:999;
+}
+
+.overlay.active{
+  display:block;
+}
+
+/* POPUP */
+.acc{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  
+  display: none;
+  z-index: 1000;
+  text-align: center;
+}
+
+.acc button{
+  margin:10px;
+  padding:10px 20px;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+/* tombol batal */
+.acc button:first-of-type{
+  background: gray;
+  color: white;
+  transition: all 0.2s ease;
+}
+
+.acc button:first-of-type:hover {
+  text-shadow: 0px 0px 10px white;
+  background-color: red;
+}
+
+/* tombol yakin */
+.acc button:last-child{
+  background: green;
+  color: white;
+  transition: all 0.2s ease;
+}
+
+.acc button:last-child:hover {
+  text-shadow: 0px 0px 10px white;
+  background-color: darkgreen;
+}
+.acc.active{
+  display: block;
 }
