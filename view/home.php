@@ -1,3 +1,7 @@
+<?php
+include "../config/koneksi.php"
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -8,13 +12,13 @@
 </head>
 <body>
 
-  <header>
-    <div class="logo">E-Voting OSIS & MPK</div>
+  <header>                                                                                                                                                                                                                                                                                                {}Y     
+    <div class="logo">E-Voting OSIS & MPK</div>                      
     <nav>
-      <a href="home.html">Home</a>
-      <a href="kandidat.html">Kandidat</a>
-      <a href="vote.html">Voting</a>
-      <a href="login.html">Login</a>
+      <a href="home.php">Home</a>                                                      
+      <a href="kandidat.php">Kandidat</a>
+      <a href="vote.php">Voting</a>
+      <a href="login.php">Login</a>
     </nav>
   </header>
 
