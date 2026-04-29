@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #e6c2c2;
+}
+
+/* NAVBAR */
+nav {
+    display: flex;
+    align-items: center;
+    padding: 15px 30px;
+    gap: 10px;
+}
+
+nav img {
+    width: 40px;
+}
+
+nav h2 {
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+/* BODY */
+.body {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* JUDUL */
+.judul {
+    display: inline-block;
+    background: #eee;
+    padding: 15px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.judul h2 {
+    margin: 0;
+}
+
+.judul p {
+    margin: 5px 0 0;
+    font-size: 14px;
+}
+
+/* CARD CONTAINER */
+.pocket {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 50px;
+}
+
+/* CARD UMUM */
+.card {
+    width: 300px;
+    height: 420px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+/* OSIS */
+.osis .card {
+    background-color: #c98f8f;
+}
+
+/* MPK */
+.mpk .card {
+    background-color: #a6b092;
+}
+
+/* IMAGE */
+.card img {
+    width: 180px;
+    margin-bottom: 10px;
+}
+
+/* TEXT */
+.card h2 {
+    margin: 10px 0 5px;
+}
+
+.card p {
+    margin-bottom: 20px;
+}
+
+/* BUTTON */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+}
+
+/* BUTTON OSIS */
+.osis button {
+    background-color: #8b3a0e;
+}
+
+/* BUTTON MPK */
+.mpk button {
+    background-color: #0a6b0a;
+}

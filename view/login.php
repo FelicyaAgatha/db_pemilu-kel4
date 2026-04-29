@@ -11,21 +11,29 @@ include "../config/koneksi.php"
   <link rel="stylesheet" href="../assets/css/login.css">
 </head>
 <body>
-
-    <header>
-  <div class="logo">E-Voting OSIS & MPK</div>
   <nav>
-    <a href="home.php">Home</a>
-    <a href="kandidat.php">Kandidat</a>
-    <a href="vote.php">Voting</a>
-    <a href="login.php">Login</a>
+    <img src="../assets/img/logo bpm.png" alt="">
+    <img src="../assets/img/logo_osemka.png" alt="">
+    <h2>E-Voting OSIS & MPK</h2>
   </nav>
-</header>
+
+  <div class="right">
+    <h1>Pemilihan</h1>
+    <h2>Ketua & Wakil</h2>
+    <h3>OSIS & MPK</h3>
+    <p>Gunakan hak pilihmu untuk <br>
+      memilih pemimpin terbaik yang <br>
+      akan membawa perubahan <br>
+      positif bagi SMK Bina Putra <br> 
+      Mandiri
+    </p>
+  </div>
 
   <div class="login-container">
     <div class="login-box">
-      <h2>Login</h2>
-      <p>Masuk untuk memberikan suara Anda</p>
+      <img src="../assets/img/logo bpm.png" alt="">
+      <h2>Selamat Datang</h2>
+      <p>Silakan amasuk untuk melanjutkan</p>
 
       <form>
         <label>NIPD</label>
@@ -37,6 +45,9 @@ include "../config/koneksi.php"
         <button type="submit">Masuk</button>
       </form>
     </div>
+  </div>
+  <div class="box">
+
   </div>
 
 </body>

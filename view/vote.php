@@ -15,7 +15,6 @@ include "../config/koneksi.php"
 <header>
   <div class="logo">E-Voting OSIS & MPK</div>
   <nav>
-    <a href="home.php">Home</a>
     <a href="kandidat.php">Kandidat</a>
     <a href="vote.php">Voting</a>
     <a href="login.php">Login</a>

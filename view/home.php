@@ -12,7 +12,7 @@ include "../config/koneksi.php"
 </head>
 <body>
 
-  <header>                                                                                                                                                                                                                                                                                                {}Y     
+  <header>
     <div class="logo">E-Voting OSIS & MPK</div>                      
     <nav>
       <a href="home.php">Home</a>                                                      
