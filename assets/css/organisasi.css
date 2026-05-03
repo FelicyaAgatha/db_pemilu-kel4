@@ -21,6 +21,16 @@ nav h2 {
     margin-left: 10px;
 }
 
+nav button {
+    position: absolute;
+    top: 20px;
+    left: 90%;
+    border: none;
+    border-radius: 5px;
+    color:  white;
+    background-color: darkred;
+}
+
 /* BODY */
 .body {
     text-align: center;

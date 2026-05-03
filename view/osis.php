@@ -1,34 +1,32 @@
 <?php 
 include "../config/koneksi.php";
-
-// ambil dari VIEW MPK
-$osis = mysqli_query($conn, "SELECT * FROM v_osis");
+$mpk = mysqli_query($conn, "SELECT * FROM v_osis");
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Kandidat MPK</title>
+  <title>Kandidat osis</title>
   <link rel="stylesheet" href="../assets/css/kandidat.css">
 </head>
 <body>
 
-<header>
-  <div class="logo">E-Voting MPK</div>
-</header>
+    <nav>
+        <img src="../assets/img/logo bpm.png" alt="">
+        <img src="../assets/img/logo_osemka.png" alt="">
+        <h2>E-Voting OSIS & MPK</h2>
+    </nav>
 
-<center>
-  <h1>Daftar Kandidat MPK</h1>
-</center>
 
 <div class="container">
 
   <div class="osis">
-    <?php while($o = mysqli_fetch_assoc($osis)) { ?>
+    <?php while($m = mysqli_fetch_assoc($mpk)) { ?>
       <div class="card">
-        <img src="<?= $o['foto_path'] ?>">
-        <h3><?= $o['nama_ketua'] ?> & <?= $o['nama_wakil'] ?></h3>
-        <button onclick="openPopup('mpk<?= $o['id'] ?>')">
+        <img src="<?= $m['foto_path'] ?>">
+        <h3><?= $m['nama_ketua'] ?> & <?= $m['nama_wakil'] ?></h3>
+
+        <button onclick="openPopup('mpk<?= $m['id'] ?>')">
           Lihat Profil
         </button>
       </div>
@@ -37,48 +35,58 @@ $osis = mysqli_query($conn, "SELECT * FROM v_osis");
 
 </div>
 
-<!-- ================= POPUP PROFIL ================= -->
-<?php 
-mysqli_data_seek($osis, 0);
-while($o = mysqli_fetch_assoc($osis)) { ?>
-<div id="osis<?= $o['id'] ?>" class="popup">
+<!-- ================= POPUP PROFILE ================= -->
+<?php mysqli_data_seek($mpk, 0); while($m = mysqli_fetch_assoc($mpk)) { ?>
+<div id="mpk<?= $m['id'] ?>" class="popup">
   <div class="popup-content landscape">
-    <span class="close" onclick="closePopup('osis<?= $o['id'] ?>')">&times;</span>
 
-    <img src="<?= $o['foto_path'] ?>">
-    <h3><?= $o['nama_ketua'] ?> & <?= $o['nama_wakil'] ?></h3>
+    <span class="close" onclick="closePopup('mpk<?= $m['id'] ?>')">&times;</span>
 
-    <h4>Visi</h4>
-    <p><?= $o['visi'] ?></p>
+    <div class="popup-body">
+      <div class="left">
+        <img src="<?= $m['foto_path'] ?>">
+        <h3><?= $m['nama_ketua'] ?> & <?= $m['nama_wakil'] ?></h3>
+      </div>
 
-    <h4>Misi</h4>
-    <p><?= nl2br($o['misi']) ?></p>
+      <div class="right">
+        <h4>Visi</h4>
+        <p><?= $m['visi'] ?></p>
 
-    <h4>Program Kerja</h4>
-    <p><?= nl2br($o['proker']) ?></p>
+        <h4>Misi</h4>
+        <p><?= nl2br($m['misi']) ?></p>
 
-    <button onclick="openConfirm('<?= $o['nama_ketua'] ?> & <?= $o['nama_wakil'] ?>')">
-      Pilih
-    </button>
+        <h4>Program Kerja</h4>
+        <p><?= nl2br($m['proker']) ?></p>
+
+        <!-- 🔥 KIRIM ID BUKAN NAMA -->
+        <button onclick="openConfirm('<?= $m['id'] ?>')">
+          Pilih
+        </button>
+      </div>
+    </div>
 
   </div>
 </div>
 <?php } ?>
 
-<!-- ================= POPUP KONFIRMASI ================= -->
-<div id="confirmPopup" class="popup">
-  <div class="popup-content">
-    <span class="close" onclick="closeConfirm()">&times;</span>
-
+<!-- ================= POPUP CONFIRM ================= -->
+<div class="acc" id="confirmBox">
+  <div class="box">
     <h2 id="confirmText">Apakah anda yakin memilih?</h2>
 
-    <button onclick="closeConfirm()">Batal</button>
-    <button onclick="pilihSekarang()">Saya yakin</button>
+    <!-- 🔥 FORM KE PHP -->
+    <form action="../controller/p_voting.php" method="POST">
+      <input type="hidden" name="id_calon" id="id_calon">
+
+      <button type="button" onclick="closeConfirm()">Batal</button>
+      <button type="submit">Saya yakin</button>
+    </form>
+
   </div>
 </div>
 
-<!-- ================= JS EXTERNAL ================= -->
-<script src="../assets/js/kandidat.js"></script>
+<!-- JS -->
+<script src="../assets/script/kandidat.js"></script>
 
 </body>
 </html>

@@ -1,7 +1,13 @@
-<?php 
+https://chatgpt.com/?prompt=full+code&share_source=prompt_link_button&share_id=f564df1e-adb9-404d-9378-ae0f83fc1096<?php 
+session_start();
 include "../config/koneksi.php";
 
-// ambil dari VIEW MPK
+// proteksi login
+if(!isset($_SESSION['id_user'])){
+    header("Location: login.php");
+    exit;
+}
+
 $mpk = mysqli_query($conn, "SELECT * FROM v_mpk");
 ?>
 
@@ -13,13 +19,11 @@ $mpk = mysqli_query($conn, "SELECT * FROM v_mpk");
 </head>
 <body>
 
-<header>
-  <div class="logo">E-Voting MPK</div>
-</header>
-
-<center>
-  <h1>Daftar Kandidat MPK</h1>
-</center>
+<nav>
+  <img src="../assets/img/logo bpm.png" alt="">
+  <img src="../assets/img/logo_osemka.png" alt="">
+  <h2>E-Voting OSIS & MPK</h2>
+</nav>
 
 <div class="container">
 
@@ -28,6 +32,7 @@ $mpk = mysqli_query($conn, "SELECT * FROM v_mpk");
       <div class="card">
         <img src="<?= $m['foto_path'] ?>">
         <h3><?= $m['nama_ketua'] ?> & <?= $m['nama_wakil'] ?></h3>
+
         <button onclick="openPopup('mpk<?= $m['id'] ?>')">
           Lihat Profil
         </button>
@@ -37,47 +42,57 @@ $mpk = mysqli_query($conn, "SELECT * FROM v_mpk");
 
 </div>
 
-<!-- ================= POPUP PROFIL ================= -->
-<?php 
-mysqli_data_seek($mpk, 0);
-while($m = mysqli_fetch_assoc($mpk)) { ?>
+<!-- POPUP PROFILE -->
+<?php mysqli_data_seek($mpk, 0); while($m = mysqli_fetch_assoc($mpk)) { ?>
 <div id="mpk<?= $m['id'] ?>" class="popup">
   <div class="popup-content landscape">
+
     <span class="close" onclick="closePopup('mpk<?= $m['id'] ?>')">&times;</span>
 
-    <img src="<?= $m['foto_path'] ?>">
-    <h3><?= $m['nama_ketua'] ?> & <?= $m['nama_wakil'] ?></h3>
+    <div class="popup-body">
+      <div class="left">
+        <img src="<?= $m['foto_path'] ?>">
+        <h3><?= $m['nama_ketua'] ?> & <?= $m['nama_wakil'] ?></h3>
+      </div>
 
-    <h4>Visi</h4>
-    <p><?= $m['visi'] ?></p>
+      <div class="right">
+        <h4>Visi</h4>
+        <p><?= $m['visi'] ?></p>
 
-    <h4>Misi</h4>
-    <p><?= nl2br($m['misi']) ?></p>
+        <h4>Misi</h4>
+        <p><?= nl2br($m['misi']) ?></p>
 
-    <h4>Program Kerja</h4>
-    <p><?= nl2br($m['proker']) ?></p>
+        <h4>Program Kerja</h4>
+        <p><?= nl2br($m['proker']) ?></p>
 
-    <button onclick="openConfirm('<?= $m['nama_ketua'] ?> & <?= $m['nama_wakil'] ?>')">
-      Pilih
-    </button>
+        <!-- tombol pilih -->
+        <button onclick="openConfirm('<?= $m['id'] ?>')">
+          Pilih
+        </button>
+      </div>
+    </div>
 
   </div>
 </div>
 <?php } ?>
 
-<!-- ================= POPUP KONFIRMASI ================= -->
-<div id="confirmPopup" class="popup">
-  <div class="popup-content">
-    <span class="close" onclick="closeConfirm()">&times;</span>
+<!-- POPUP CONFIRM -->
+<div class="acc" id="confirmBox">
+  <div class="box">
+    <h2 id="confirmText">Apakah anda yakin memilih kandidat ini?</h2>
 
-    <h2 id="confirmText">Apakah anda yakin memilih?</h2>
+    <form action="../controller/p_voting.php" method="POST">
+      <input type="hidden" name="id_calon" id="id_calon">
+      <input type="hidden" name="id_organisasi" value="1"> <!-- 🔥 WAJIB -->
 
-    <button onclick="closeConfirm()">Batal</button>
-    <button onclick="pilihSekarang()">Saya yakin</button>
+      <button type="button" onclick="closeConfirm()">Batal</button>
+      <button type="submit">Saya yakin</button>
+    </form>
+
   </div>
 </div>
 
-<!-- ================= JS EXTERNAL ================= -->
+<!-- JS -->
 <script src="../assets/script/kandidat.js"></script>
 
 </body>

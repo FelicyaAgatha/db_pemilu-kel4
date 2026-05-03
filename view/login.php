@@ -1,5 +1,6 @@
-<?php 
-include "../config/koneksi.php"
+<?php
+session_start();
+include "../config/koneksi.php";
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +24,7 @@ include "../config/koneksi.php"
     <h3>OSIS & MPK</h3>
     <p>Gunakan hak pilihmu untuk <br>
       memilih pemimpin terbaik yang <br>
-      akan membawa perubahan <br>
+      akan membawa perubahan <br>   
       positif bagi SMK Bina Putra <br> 
       Mandiri
     </p>
@@ -33,14 +34,14 @@ include "../config/koneksi.php"
     <div class="login-box">
       <img src="../assets/img/logo bpm.png" alt="">
       <h2>Selamat Datang</h2>
-      <p>Silakan amasuk untuk melanjutkan</p>
+      <p>Silakan masuk untuk melanjutkan</p>
 
-      <form>
+      <form action="../controller/p_login.php" method="POST">
         <label>NIPD</label>
-        <input type="text" placeholder="Masukkan NIPD">
+        <input type="text" name="nipd" placeholder="Masukkan NIPD" required>
 
         <label>Password</label>
-        <input type="password" placeholder="Masukkan password">
+        <input type="password" name="password" placeholder="Masukkan password" required>
 
         <button type="submit">Masuk</button>
       </form>

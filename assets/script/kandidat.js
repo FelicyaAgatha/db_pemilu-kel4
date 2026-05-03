@@ -1,53 +1,22 @@
-// ================= POPUP PROFIL =================
+// ================= POPUP PROFILE =================
 function openPopup(id) {
-  const popup = document.getElementById(id);
-  if (popup) {
-    popup.classList.add("active");
-  } else {
-    console.error("Popup tidak ditemukan:", id);
-  }
+  document.getElementById(id).classList.add("active");
 }
 
 function closePopup(id) {
-  const popup = document.getElementById(id);
-  if (popup) {
-    popup.classList.remove("active");
-  }
+  document.getElementById(id).classList.remove("active");
 }
 
-// ================= POPUP KONFIRMASI =================
-let kandidatDipilih = "";
+// ================= CONFIRM =================
+function openConfirm(id_calon) {
+  document.getElementById("id_calon").value = id_calon;
 
-function openConfirm(nama) {
-  kandidatDipilih = nama;
+  document.getElementById("confirmText").innerText =
+    "Apakah anda yakin memilih kandidat ini?";
 
-  const text = document.getElementById("confirmText");
-  const popup = document.getElementById("confirmPopup");
-
-  if (text && popup) {
-    text.innerText = "Apakah anda yakin memilih " + nama + "?";
-    popup.classList.add("active");
-  } else {
-    console.error("Element konfirmasi tidak ditemukan");
-  }
+  document.getElementById("confirmBox").classList.add("active");
 }
 
 function closeConfirm() {
-  const popup = document.getElementById("confirmPopup");
-  if (popup) {
-    popup.classList.remove("active");
-  }
-}
-
-// ================= AKSI PILIH =================
-function pilihSekarang() {
-  if (kandidatDipilih === "") {
-    alert("Belum ada kandidat dipilih");
-    return;
-  }
-
-  alert("Kamu memilih: " + kandidatDipilih);
-
-  // TODO: kirim ke database (AJAX / fetch)
-  closeConfirm();
+  document.getElementById("confirmBox").classList.remove("active");
 }

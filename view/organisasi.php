@@ -11,6 +11,11 @@
         <img src="../assets/img/logo bpm.png" alt="">
         <img src="../assets/img/logo_osemka.png" alt="">
         <h2>E-Voting OSIS & MPK</h2>
+                <a href="../controller/p_logout.php">
+            <button>
+                Logout
+            </button>
+        </a>
     </nav>
     <div class="body">
         <div class="judul">
@@ -37,12 +42,12 @@
                     <img src="../assets/img/mpk.png" alt="">
                     <h2>MPK</h2>
                     <p>Pilih Ketua & Wakil</p>
-                </div>
                 <a href="mpk.php">
                 <button>
                     Votting MPK
                 </button>
                 </a>
+                </div>
             </div>
         </div>
     </div>
