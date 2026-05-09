@@ -1,0 +1,222 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+
+header {
+    display: flex;
+    margin:  2%;
+}
+
+.logo {
+    padding: 10px;
+    background-color: darkred;
+    border-radius: 10%;
+    margin-right: 5%;
+    width: 5.5%;
+    height: 5%;
+    position: sticky;
+    top: 10px;
+}
+
+.admin {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: darkred;
+    border-radius: 10px;
+}
+
+.admin img {
+    width: 6%;
+    margin: 0% 2% ;
+}
+
+.admin p {
+    color: white;
+    font-size: 20px;
+}
+
+.sidebar {
+    margin: 1.8%;
+    padding: 1%;
+    background-color: darkred;
+    width: 5%;
+    height: 550px;
+    border-radius: 10px;
+    position: sticky;
+}
+
+.sidebar li {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    display: block;
+    border-radius: 5px;
+}
+
+/* khusus menu aktif */
+.sidebar .hal a{
+
+    position: relative;
+
+    display: block;
+
+    padding: 10px;
+
+    width: 100px;
+
+    border-radius: 5px;
+
+    color: white;
+
+    overflow: hidden;
+
+    z-index: 1;
+}
+
+/* background animasi */
+.sidebar .hal a::before{
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 0%;
+    height: 100%;
+
+    background: white;  
+
+    border-radius: 5px;
+
+    z-index: -1;
+
+    animation: slideBg 0.5s ease forwards;
+}
+
+/* text berubah */
+.sidebar .hal a{
+
+    animation: textColor 0.5s ease forwards;
+}
+
+@keyframes slideBg{
+
+    from{
+        width: 0%;
+    }
+
+    to{
+        width: 100%;
+    }
+}
+
+@keyframes textColor{
+
+    from{
+        color: white;
+    }
+
+    to{
+        color: darkred;
+    }
+}
+
+.sidebar button {
+    position: relative;
+    top: 78%;
+    margin-left: 2%;
+}
+.calon {
+    margin-left: 260px;
+    margin-top: -590px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    padding-right: 20px;
+}
+
+/* ================= BOX ================= */
+
+.osis,
+.mpk {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.osis {
+    background-color: #c62828;
+}
+
+.mpk {
+    background-color: #2e7d32;
+}
+
+/* ================= CARD ================= */
+
+.card {
+    width: 270px;
+
+    background-color: white;
+    border-radius: 15px;
+
+    padding: 15px;
+    text-align: center;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+
+    border-radius: 10px;
+}
+
+.card h3 {
+    margin-top: 15px;
+    font-size: 18px;
+    color: #333;
+    line-height: 1.5;
+}
+
+/* ================= TOTAL ================= */
+
+.total {
+    margin-top: 15px;
+
+    background-color: darkred;
+    color: white;
+
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.total p {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}

@@ -1,4 +1,4 @@
-https://chatgpt.com/?prompt=full+code&share_source=prompt_link_button&share_id=f564df1e-adb9-404d-9378-ae0f83fc1096<?php 
+<?php 
 session_start();
 include "../config/koneksi.php";
 
@@ -83,7 +83,7 @@ $mpk = mysqli_query($conn, "SELECT * FROM v_mpk");
 
     <form action="../controller/p_voting.php" method="POST">
       <input type="hidden" name="id_calon" id="id_calon">
-      <input type="hidden" name="id_organisasi" value="1"> <!-- 🔥 WAJIB -->
+      <input type="hidden" name="id_organisasi" value="2"> <!-- 🔥 WAJIB -->
 
       <button type="button" onclick="closeConfirm()">Batal</button>
       <button type="submit">Saya yakin</button>

@@ -1,22 +1,29 @@
 <?php 
+session_start();
 include "../config/koneksi.php";
+
+// proteksi login
+if(!isset($_SESSION['id_user'])){
+    header("Location: login.php");
+    exit;
+}
+
 $mpk = mysqli_query($conn, "SELECT * FROM v_osis");
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Kandidat osis</title>
+  <title>Kandidat MPK</title>
   <link rel="stylesheet" href="../assets/css/kandidat.css">
 </head>
 <body>
 
-    <nav>
-        <img src="../assets/img/logo bpm.png" alt="">
-        <img src="../assets/img/logo_osemka.png" alt="">
-        <h2>E-Voting OSIS & MPK</h2>
-    </nav>
-
+<nav>
+  <img src="../assets/img/logo bpm.png" alt="">
+  <img src="../assets/img/logo_osemka.png" alt="">
+  <h2>E-Voting OSIS & MPK</h2>
+</nav>
 
 <div class="container">
 
@@ -35,7 +42,7 @@ $mpk = mysqli_query($conn, "SELECT * FROM v_osis");
 
 </div>
 
-<!-- ================= POPUP PROFILE ================= -->
+<!-- POPUP PROFILE -->
 <?php mysqli_data_seek($mpk, 0); while($m = mysqli_fetch_assoc($mpk)) { ?>
 <div id="mpk<?= $m['id'] ?>" class="popup">
   <div class="popup-content landscape">
@@ -58,7 +65,7 @@ $mpk = mysqli_query($conn, "SELECT * FROM v_osis");
         <h4>Program Kerja</h4>
         <p><?= nl2br($m['proker']) ?></p>
 
-        <!-- 🔥 KIRIM ID BUKAN NAMA -->
+        <!-- tombol pilih -->
         <button onclick="openConfirm('<?= $m['id'] ?>')">
           Pilih
         </button>
@@ -69,14 +76,14 @@ $mpk = mysqli_query($conn, "SELECT * FROM v_osis");
 </div>
 <?php } ?>
 
-<!-- ================= POPUP CONFIRM ================= -->
+<!-- POPUP CONFIRM -->
 <div class="acc" id="confirmBox">
   <div class="box">
-    <h2 id="confirmText">Apakah anda yakin memilih?</h2>
+    <h2 id="confirmText">Apakah anda yakin memilih kandidat ini?</h2>
 
-    <!-- 🔥 FORM KE PHP -->
     <form action="../controller/p_voting.php" method="POST">
       <input type="hidden" name="id_calon" id="id_calon">
+      <input type="hidden" name="id_organisasi" value="1"> <!-- 🔥 WAJIB -->
 
       <button type="button" onclick="closeConfirm()">Batal</button>
       <button type="submit">Saya yakin</button>

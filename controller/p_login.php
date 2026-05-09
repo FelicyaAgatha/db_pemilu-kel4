@@ -10,26 +10,35 @@ if(!$nipd || !$password){
     exit;
 }
 
-// panggil SP
+// panggil stored procedure
 $query = mysqli_query($conn, "CALL sp_login('$nipd','$password')");
-$data  = mysqli_fetch_assoc($query);
 
+// ambil hasil
+$data = mysqli_fetch_assoc($query);
+
+// bersihin sisa result (WAJIB kalau pakai SP)
 mysqli_next_result($conn);
 
-// validasi hasil SP
-if ($data['status'] == 'LOGIN_BERHASIL') {
+// validasi hasil
+if ($data && $data['status'] == 'LOGIN_BERHASIL') {
 
     $_SESSION['id_user'] = $data['id_user'];
     $_SESSION['nipd']    = $data['nipd'];
+    $_SESSION['role']    = $data['role'];
 
-    header("Location: ../view/organisasi.php");
+    // redirect berdasarkan role
+    if ($data['role'] == 'admin') {
+        header("Location: ../admin/dashboard.php");
+    } else {
+        header("Location: ../view/organisasi.php");
+    }
     exit;
 
-} elseif ($data['status'] == 'PASSWORD_SALAH') {
+} elseif ($data && $data['status'] == 'PASSWORD_SALAH') {
 
     echo "<script>alert('Password salah'); window.location='../view/login.php';</script>";
 
-} elseif ($data['status'] == 'USER_TIDAK_DITEMUKAN') {
+} elseif ($data && $data['status'] == 'USER_TIDAK_DITEMUKAN') {
 
     echo "<script>alert('User tidak ditemukan'); window.location='../view/login.php';</script>";
 
