@@ -20,6 +20,7 @@ $page = $_GET['page'] ?? 'siswa';
 </head>
 <body>
 
+
 <header>
     <div class="logo">
         <img src="../assets/img/logo_osemka.png">
@@ -278,6 +279,8 @@ echo "</div>";
 </div>
     </div>
 </div>
+<div class="bg"></div>
+
 <script src="../assets/script/dashboard.js"></script>
 </body>
 </html>

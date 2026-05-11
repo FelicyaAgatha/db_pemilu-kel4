@@ -11,6 +11,9 @@ include "../config/koneksi.php"
   <link rel="stylesheet" href="../assets/css/home.css">
 </head>
 <body>
+  <div class="">
+
+  </div>
 
   <header>
     <div class="logo">E-Voting OSIS & MPK</div>                      

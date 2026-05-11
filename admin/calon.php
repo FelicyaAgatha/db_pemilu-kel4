@@ -1,142 +1,147 @@
-<?php
-include "../config/koneksi.php";
+    <?php
+    include "../config/koneksi.php";
 
-$osis = mysqli_query($conn,
-    "SELECT * FROM v_hasil_voting
-    WHERE LOWER(TRIM(nama_organisasi)) = 'osis'"
-);
+    $osis = mysqli_query($conn,
+        "SELECT * FROM v_hasil_voting
+        WHERE LOWER(TRIM(nama_organisasi)) = 'osis'"
+    );
 
-$mpk = mysqli_query($conn,
-    "SELECT * FROM v_hasil_voting
-    WHERE LOWER(TRIM(nama_organisasi)) = 'mpk'"
-);
-?>
+    $mpk = mysqli_query($conn,
+        "SELECT * FROM v_hasil_voting
+        WHERE LOWER(TRIM(nama_organisasi)) = 'mpk'"
+    );
+    ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calon</title>
-    <link rel="stylesheet" href="../assets/css/calon.css">
-</head>
-<body>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calon</title>
+        <link rel="stylesheet" href="../assets/css/calon.css">
+    </head>
+    <body>
 
-<header>
-    <div class="logo">
-        <img src="../assets/img/logo_osemka.png">
+    <header>
+        <div class="logo">
+            <img src="../assets/img/logo_osemka.png">
+        </div>
+
+        <div class="admin">
+            <img src="../assets/img/logo bpm.png">
+            <p>Hallo , Admin</p>
+        </div>
+    </header>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">   
+        <li><a href="dashboard.php">Dashboard</a></li>
+        <li class="hal"><a href="calon.php">Kandidat</a></li>
+        <li><a href="arsip.php">Catatan</a></li>
+
+        <a href="../controller/p_logout.php">
+            <button>Logout</button>
+        </a>
     </div>
+    <div class="main">
 
-    <div class="admin">
-        <img src="../assets/img/logo bpm.png">
-        <p>Hallo , Admin</p>
-    </div>
-</header>
+    <!-- CALON -->
+    <div class="calon">
 
-<!-- SIDEBAR -->
-<div class="sidebar">   
-    <li><a href="dashboard.php">Dashboard</a></li>
-    <li class="hal"><a href="calon.php">Kandidat</a></li>
-    <li><a href="arsip.php">Catatan</a></li>
-
-    <a href="../controller/p_logout.php">
-        <button>Logout</button>
-    </a>
-</div>
-
-<!-- CALON -->
-<div class="calon">
-
-    <!-- ================= OSIS ================= -->
+        <!-- ================= OSIS ================= -->
 
 
-    <div class="osis">
+        <div class="osis">
 
-<?php while($d = mysqli_fetch_assoc($osis)){ ?>
+    <?php while($d = mysqli_fetch_assoc($osis)){ ?>
 
-        <div class="card">
+            <div class="card">
 
-            <!-- FOTO -->
-            <img src="../assets/img/<?= $d['foto']; ?>" alt="">
+                <!-- FOTO -->
+                <img src="../assets/img/<?= $d['foto']; ?>" alt="">
 
-            <!-- NAMA -->
-            <h3>
-                <?= $d['nama_ketua']; ?>
-                &
-                <br>
-                <?= $d['nama_wakil']; ?>
-            </h3>
+                <!-- NAMA -->
+                <h3>
+                    <?= $d['nama_ketua']; ?>
+                    &
+                    <br>
+                    <?= $d['nama_wakil']; ?>
+                </h3>
 
-            <!-- TOTAL -->
-            <div class="total">
+                <!-- TOTAL -->
+                <div class="total">
 
-                <!-- BAR -->
-                <div class="bar"
-                    style="width: <?= $d['persen']; ?>%">
+                    <!-- BAR -->
+                    <div class="bar"
+                        style="width: <?= $d['persen']; ?>%">
+                    </div>
+
+                    <!-- TEXT -->
+                    <p><?= $d['persen']; ?>%</p>
+
                 </div>
 
-                <!-- TEXT -->
-                <p><?= $d['persen']; ?>%</p>
+                <!-- TOTAL VOTE -->
+                <small>
+                    <?= $d['total_vote']; ?> Vote
+                </small>
 
             </div>
 
-            <!-- TOTAL VOTE -->
-            <small>
-                <?= $d['total_vote']; ?> Vote
-            </small>
+    <?php } ?>
 
         </div>
 
-<?php } ?>
+        <br><br>
 
-    </div>
+        <!-- ================= MPK ================= -->
 
-    <br><br>
+        <div class="mpk">
 
-    <!-- ================= MPK ================= -->
+    <?php while($d = mysqli_fetch_assoc($mpk)){ ?>
 
-    <div class="mpk">
+            <div class="card">
 
-<?php while($d = mysqli_fetch_assoc($mpk)){ ?>
+                <!-- FOTO -->
+                <img src="../assets/img/<?= $d['foto']; ?>" alt="">
 
-        <div class="card">
+                <!-- NAMA -->
+                <h3>
+                    <?= $d['nama_ketua']; ?>
+                    &
+                    <br>
+                    <?= $d['nama_wakil']; ?>
+                </h3>
 
-            <!-- FOTO -->
-            <img src="../assets/img/<?= $d['foto']; ?>" alt="">
+                <!-- TOTAL -->
+                <div class="total">
 
-            <!-- NAMA -->
-            <h3>
-                <?= $d['nama_ketua']; ?>
-                &
-                <br>
-                <?= $d['nama_wakil']; ?>
-            </h3>
+                    <!-- BAR -->
+                    <div class="bar"
+                        style="width: <?= $d['persen']; ?>%">
+                    </div>
 
-            <!-- TOTAL -->
-            <div class="total">
+                    <!-- TEXT -->
+                    <p><?= $d['persen']; ?>%</p>
 
-                <!-- BAR -->
-                <div class="bar"
-                    style="width: <?= $d['persen']; ?>%">
                 </div>
 
-                <!-- TEXT -->
-                <p><?= $d['persen']; ?>%</p>
+                <!-- TOTAL VOTE -->
+                <small>
+                    <?= $d['total_vote']; ?> Vote
+                </small>
 
             </div>
 
-            <!-- TOTAL VOTE -->
-            <small>
-                <?= $d['total_vote']; ?> Vote
-            </small>
+    <?php } ?>
 
         </div>
 
-<?php } ?>
-
+    </div>
     </div>
 
-</div>
+    <div class="bg"></div>
 
-</body>
-</html>
+
+    </body>
+    </html>

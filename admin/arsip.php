@@ -157,20 +157,7 @@ while($d = mysqli_fetch_assoc($detail)){
 <?php } ?>
 
 <!-- ================= SCRIPT ================= -->
-<script>
-
-function openPopup(id){
-
-    document.getElementById(id).style.display = "flex";
-
-}
-
-function closePopup(id){
-
-    document.getElementById(id).style.display = "none";
-
-}
-
+<script src="../assets/script/arsp.js">
 </script>
 
 </body>
