@@ -1,0 +1,152 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  background: linear-gradient(135deg, #ff9aa2, #f06292);
+  min-height:100vh;
+}
+
+/* NAVBAR */
+nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 40px;
+}
+
+nav img {
+  width: 60px;
+}
+
+nav h2 {
+  color: white;
+}
+
+/* WRAPPER */
+.main{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:40px;
+  min-height:80vh;
+}
+
+/* KIRI */
+.right{
+  color:white;
+  max-width:400px;
+}
+
+.right h1{
+  font-size:42px;
+  margin-bottom:5px;
+}
+
+.right h2{
+  font-size:28px;
+}
+
+.right h3{
+  font-size:22px;
+  margin-bottom:10px;
+}
+
+.right p{
+  line-height:1.6;
+}
+
+.right img{
+  width:100%;
+  max-width:300px;
+  margin-top:20px;
+}
+
+/* LOGIN */
+.login-container{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex:1;
+}
+
+/* BOX LOGIN */
+.login-box{
+  background:white;
+  width:100%;
+  max-width:380px;
+  padding:30px;
+  border-radius:15px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.login-box img{
+  width:100px;
+  display:block;
+  margin:0 auto 20px;
+}
+
+.login-box h2{
+  text-align:center;
+  margin-bottom:5px;
+}
+
+.login-box p{
+  text-align:center;
+  font-size:14px;
+  color:#666;
+  margin-bottom:20px;
+}
+
+.login-box label{
+  display:block;
+  margin-bottom:6px;
+  font-size:14px;
+}
+
+.login-box input{
+  width:100%;
+  padding:10px;
+  margin-bottom:15px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+
+.login-box input:focus{
+  border-color:#1f4aa8;
+  outline:none;
+}
+
+.login-box button{
+  width:100%;
+  padding:12px;
+  background:#1f4aa8;
+  color:white;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.login-box button:hover{
+  background:#17397f;
+}
+
+/* RESPONSIVE HP */
+@media (max-width: 768px){
+  .main{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .right{
+    margin-bottom:30px;
+  }
+
+  nav{
+    flex-direction:column;
+    text-align:center;
+  }
+}
