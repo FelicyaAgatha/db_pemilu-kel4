@@ -3,11 +3,9 @@ include '../config/koneksi.php';
 
 header("Content-Type: application/json");
 
-// ambil data dari POST (x-www-form-urlencoded)
 $nipd = $_POST['nipd'] ?? '';
 $password = $_POST['password'] ?? '';
 
-// validasi input kosong
 if (empty($nipd) || empty($password)) {
     echo json_encode([
         "status" => false,
@@ -16,10 +14,9 @@ if (empty($nipd) || empty($password)) {
     exit;
 }
 
-// query cek nipd
-$query = mysqli_query($conn, "SELECT * FROM siswa WHERE nipd='$nipd'");
+// cek user berdasarkan nipd
+$query = mysqli_query($conn, "SELECT * FROM user WHERE nipd='$nipd'");
 
-// cek data ada atau tidak
 if (mysqli_num_rows($query) > 0) {
 
     $data = mysqli_fetch_assoc($query);
@@ -31,8 +28,10 @@ if (mysqli_num_rows($query) > 0) {
             "status" => true,
             "message" => "Login berhasil",
             "data" => [
+                "id_user" => $data['id_user'],
+                "username" => $data['username'],
                 "nipd" => $data['nipd'],
-                "nama" => $data['nama'] ?? null
+                "role" => $data['role']
             ]
         ]);
 
@@ -51,5 +50,4 @@ if (mysqli_num_rows($query) > 0) {
         "message" => "NIPD tidak ditemukan"
     ]);
 }
-
 ?>
